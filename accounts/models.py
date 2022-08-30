@@ -18,3 +18,5 @@ class Department(models.Model):
 class CustomUser(AbstractUser):
     role = models.ForeignKey(Role, on_delete=models.CASCADE, blank=True, null=True)
     department = models.ForeignKey(Department, on_delete=models.CASCADE, blank=True, null=True)
+
+    from django.contrib.auth.models import User

@@ -42,11 +42,11 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 		obj = self.get_object()
 		return obj.author==self.request.user
 
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    template_name = "articles/delete.html"
+class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+	template_name = "articles/delete.html"
 	model = Article
-    success_url = reverse_lazy("article_list")
-
-    def test_func(self):
-        obj = self.get_object()
-        return obj.author==self.request.user
+	success_url = reverse_lazy("article_list")
+	
+	def test_func(self):
+		obj = self.get_object()
+		return obj.author==self.request.user

@@ -2,6 +2,27 @@
 
 from django.db import migrations
 
+def populate_article_type(apps, schemaeditor):
+    a_types = {
+        "Report": "A journalistic piece",
+        "Column": "A journalist's opinion piece",
+        "Editorial": "An opinion piece by an editor",
+    }
+    ArticleType = apps.get_model("articles", "ArticleType")
+    for name, desc in a_types.items():
+        at_obj = ArticleType(name=name, description=desc)
+        at_obj.save()
+
+def populate_status(apps, schemaeditor):
+    statuses = {
+        "Pending": "An article that has not been reviewed",
+        "Approved": "An article that has been approved by an editor",
+        "Rejected": "An article that has been rejected by an editor",
+    }
+    Status = apps.get_model("articles", "ArticleType")
+    for name, desc in statuses.items():
+        status_obj = Status(name=name, description=desc)
+        status_obj.save()
 
 class Migration(migrations.Migration):
 
@@ -10,4 +31,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(populate_article_type),
+        migrations.RunPython(populate_status)
     ]

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} About{% endblock title %}
+
+{% block content %}
+<div class="container" style="background-color: rgb(238, 238, 238);">
+    <div style="padding-top: 2rem; margin-bottom: 3rem" class="text-center">
+        <h1 style="font-size: 4rem; font-weight: bold">VIEWS NEWS</h1>
+        <div style="height: 0.3rem; background-color: rgb(66, 9, 9)"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for article in article_list %}
+            <div class="col-3">
+                <h3 style="font-weight: bold">{{article.title}}</h3>
+                <small style="font-style: italic">{{article.author}}</small>
+                <p style="text-align:justify; font-size: 14px;">Lorem, ipsum dolor sit amet consectetur adipisicing
+                    elit. Fugiat laudantium, assumenda officia fugit quibusdam debitis eaque ea eos repudiandae, aliquam
+                    est architecto odio facere voluptates. Error ex autem quia recusandae? Inventore minus molestias
+                    dicta ad omnis velit eos aspernatur et quas, exercitationem neque voluptatem repellendus. Illo iste
+                    incidunt provident dolore!...</p>
+                <a href="{% url 'article_detail' article.id %}" class="float-end">Read More</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

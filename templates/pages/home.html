@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<div
+    style="background-image: url('https://c.tenor.com/fNQB1LHCTP0AAAAd/walking-people-veritasium.gif'); background-size: cover; height: 100vh; background-position-y:center;">
+    <div class="container text-center" style="color: white; text-shadow: 3px 3px black; padding-top: 25vh">
+        <h1 style="font-weight: bold; font-size: 5rem;">VIEWS NEWS</h1>
+        <div style="height: 0.5rem; width: 65%; margin-left: auto; margin-right: auto; background-color: rgb(66, 9, 9)">
+        </div>
+        <h2>News for you, for the country and for the world!</h2>
+        <div style="text-shadow: none; padding-top: 25vh">
+            <a href="{% url 'about' %}" class="btn btn-lg btn-dark">Learn More</a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+{% endblock content %}
